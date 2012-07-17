@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, GestureDetectorExampleActivity!</string>
+    <string name="app_name">GestureDetectorExample</string>
+    <string-array name="bucket_list">
+        <item >Drink some sode at poolside</item>
+        <item >Chill and watch the game</item>
+        <item >Pull a prank on my neighbor</item>
+        <item >Finish homework 5</item>
+    </string-array>
+
+</resources>
