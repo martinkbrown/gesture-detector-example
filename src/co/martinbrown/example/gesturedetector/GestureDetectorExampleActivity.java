@@ -44,6 +44,9 @@ public class GestureDetectorExampleActivity extends Activity implements OnTouchL
             if(v != null) {
                 v.setOnTouchListener(GestureDetectorExampleActivity.this);
             }
+            else {
+            	Toast.makeText(getApplicationContext(), "View is null", Toast.LENGTH_LONG).show();
+            }
 
             return v;
         }
@@ -62,7 +65,6 @@ public class GestureDetectorExampleActivity extends Activity implements OnTouchL
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                 float velocityY) {
-
             if (e1.getX() - e2.getX() > 50
                     && Math.abs(velocityX) > 50) {
                 swipe = -1;
@@ -84,7 +86,9 @@ public class GestureDetectorExampleActivity extends Activity implements OnTouchL
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        
+        detector = new GestureDetector(this, new MyGestureDetector());
+        
         lv = (ListView) findViewById(R.id.listView1);
 
         String[] sList = getResources().getStringArray(R.array.bucket_list);
@@ -97,8 +101,6 @@ public class GestureDetectorExampleActivity extends Activity implements OnTouchL
         myAdapter = new MyAdapter(this, android.R.layout.simple_list_item_1, myList);
 
         lv.setAdapter(myAdapter);
-
-        detector = new GestureDetector(this, new MyGestureDetector());
     }
 
     @Override
